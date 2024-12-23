@@ -8,17 +8,17 @@ const initialboard = [
 
 export default function board({onSelectSquare, activePlayerSymbol }) {
 
-    const [Gameboard, setGameboard] = useState(initialboard)
+    // const [Gameboard, setGameboard] = useState(initialboard)
 
-    function box(rowindex, colindex) {
-        setGameboard((prevboard) => {
-            const updatedboard = [...prevboard.map(innerArray => [...innerArray])];
-            updatedboard[rowindex][colindex] = activePlayerSymbol;
+    // function box(rowindex, colindex) {
+    //     setGameboard((prevboard) => {
+    //         const updatedboard = [...prevboard.map(innerArray => [...innerArray])];
+    //         updatedboard[rowindex][colindex] = activePlayerSymbol;
 
-            return updatedboard
-        })
-        onSelectSquare();
-    }
+    //         return updatedboard
+    //     })
+    //     onSelectSquare();
+    // }
 
     return(
         <ol id="game-board">
@@ -28,7 +28,7 @@ export default function board({onSelectSquare, activePlayerSymbol }) {
                         <ol>
                             {row.map((playerSymbol, colindex) => 
                                 <li key={colindex}>
-                                    <button onClick={() => box(rowindex, colindex)}>{playerSymbol}</button>
+                                    <button onClick={() => onSelectSquare(rowindex, colindex)}>{playerSymbol}</button>
                                 </li>
                             )}
                         </ol>
